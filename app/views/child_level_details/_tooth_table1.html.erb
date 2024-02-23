@@ -1,0 +1,51 @@
+<tr class="hide-row">
+  <!-- Create buttons for each tooth -->
+  <% (1..3).each do |tooth_number| %>
+    <td>
+        <%= tooth_number %>
+    </td>
+  <% end %>
+  <% (4..13).each do |tooth_number| %>
+    <td>
+        <%= tooth_number %><br><%= ('A'..'J').to_a[tooth_number - 4] %>
+    </td>
+  <% end %>
+  <% (14..16).each do |tooth_number| %>
+    <td>
+        <%= tooth_number %>
+    </td>
+  <% end %>
+</tr>
+<tr class="hide-row">
+  <% (1..16).each do |tooth_number|%>
+    <td data-cell="popup<%= tooth_number %>">
+      <button class="button" data-popup="popup<%= tooth_number %>" onclick="openPopup('popup<%= tooth_number %>')">
+      Make a selection
+      </button>
+    </td>
+  <% end %>
+</tr>
+<!--      Preventative code starts here-->
+<tr class="hide-row">
+  <% (1..16).each do |tooth_number| %>
+    <td>
+      <% if tooth_number == 3 || tooth_number == 14 %>
+        <button class="button" data-popup="popup<%= tooth_number %>" onclick="openPopup('popup<%= tooth_number %>')">
+        Make a Selection for Preventative
+        </button>
+      <% end %>
+    </td>
+  <% end %>
+</tr>
+<!--      Follow Up code starts here-->
+<tr class="hide-row">
+  <% (1..16).each do |tooth_number| %>
+    <td>
+      <% if tooth_number == 3 || tooth_number == 14 %>
+        <button class="button" data-popup="popup<%= tooth_number %>" onclick="openPopup('popup<%= tooth_number %>')">
+        Make a Selection for Follow Up
+        </button>
+      <% end %>
+    </td>
+  <% end %>
+</tr>

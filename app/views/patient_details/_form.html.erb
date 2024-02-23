@@ -1,0 +1,67 @@
+<%= form_with(model: patient_detail) do |form| %>
+  <% if patient_detail.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(patient_detail.errors.count, "error") %> prohibited this patient_detail from being saved:</h2>
+
+      <ul>
+        <% patient_detail.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :PatientId, style: "display: block" %>
+    <%= form.number_field :PatientId, class: "form-control", style: "background-color: #eee; border: 1px solid black;" %>
+  </div>
+
+  <div>
+    <%= form.label :ProgramName, style: "display: block" %>
+    <%= form.text_field :ProgramName, class: "form-control", style: "background-color: #eee; border: 1px solid black;" %>
+  </div>
+
+  <div>
+    <%= form.label :SchoolName, style: "display: block" %>
+    <%= form.text_field :SchoolName , class: "form-control", style: "background-color: #eee; border: 1px solid black;"%>
+  </div>
+
+  <div>
+    <%= form.label :Age, style: "display: block" %>
+    <%= form.number_field :Age, class: "form-control", style: "background-color: #eee; border: 1px solid black;" %>
+  </div>
+
+  <div>
+    <%= form.label :Date, style: "display: block" %>
+    <%= form.date_field :Date, class: "form-control", style: "background-color: #eee; border: 1px solid black;" %>
+  </div>
+
+  <div>
+    <%= form.label :Insurance, style: "display: block" %>
+    <%= form.text_field :Insurance, class: "form-control", style: "background-color: #eee; border: 1px solid black;" %>
+  </div>
+
+  <div>
+    <%= form.label :Grade, style: "display: block" %>
+    <%= form.text_field :Grade, class: "form-control", style: "background-color: #eee; border: 1px solid black;" %>
+  </div>
+
+  <div>
+    <%= form.label :Gender, style: "display: block" %>
+    <%= form.text_field :Gender, class: "form-control", style: "background-color: #eee; border: 1px solid black;"  %>
+  </div>
+
+  <div>
+    <%= form.label :Race, style: "display: block" %>
+    <%= form.text_field :Race, class: "form-control", style: "background-color: #eee; border: 1px solid black;"  %>
+  </div>
+
+  <div>
+    <%= form.label :Ethnicity, style: "display: block" %>
+    <%= form.text_field :Ethnicity, class: "form-control", style: "background-color: #eee; border: 1px solid black;"  %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

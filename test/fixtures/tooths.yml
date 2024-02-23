@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patient: one
+  number: 1
+  screening: 1
+  preventive: 1
+  follow: 1
+
+two:
+  patient: two
+  number: 1
+  screening: 1
+  preventive: 1
+  follow: 1

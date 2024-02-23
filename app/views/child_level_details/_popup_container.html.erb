@@ -1,0 +1,25 @@
+<% (1..32).each do |tooth_number| %>
+  <div class="popup-container" id="popup<%= tooth_number %>">
+    <div class="popup-box-small">
+      <p><%= tooth_number %></p>
+      <!-- Radio button options for the tooth -->
+      <% radio_options = [
+        { value: "D", label: "D - Decay" },
+        { value: "F", label: "F - Filled" },
+        { value: "M", label: "M - Missing" },
+        { value: "S", label: "S - Sealant Present" },
+        { value: "RS", label: "RS - Recommended Reseal" },
+        { value: "RSD", label: "RSD - Recommended Reseal Done" },
+        { value: "RSND", label: "RSND - Recommended Reseal Not Done" },
+        { value: "no mark", label: "No Treatment (No Mark)" }
+      ] %>
+      <% radio_options.each do |option| %>
+        <label>
+          <input type="radio" name="radio<%= tooth_number %>" value="<%= option[:value] %>">
+          <%= option[:label] %>
+        </label>
+      <% end %>
+      <button onclick="closePopup('<%= tooth_number %>','popup<%= tooth_number %>')">Close</button>
+    </div>
+  </div>
+<% end %>

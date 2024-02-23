@@ -1,0 +1,67 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  PID: MyString
+  TeethScreening: MyString
+  TeethPreventative: MyString
+  TeethFollowup: MyString
+  PrescriberName: MyString
+  ScreenDate: 2023-10-26
+  ScreenComment: MyString
+  UntreatedCavities: 1
+  CarriesExperience: 1
+  Sealants: 1
+  ReferralS: 1
+  ProviderName: MyString
+  ProviderDate: 2023-10-26
+  PreventComment: MyString
+  FirstSealedNum: 1
+  SecondSealedNum: 1
+  OtherPermNum: 1
+  PrimarySealed: 1
+  FluorideVarnish: false
+  EvaluatorsName: MyString
+  EvaluatorDate: 2023-10-26
+  EvaluatorComment: MyString
+  RetainedSealant: 1
+  ReferredDT: false
+  ReferredUDT: false
+  SealantsRecd: 1
+  SealnatsNeeded: 1
+  Experienced: false
+  UntreatedDecayFollow: false
+  Services: MyString
+  ORHealthStatus: MyString
+
+two:
+  PID: MyString
+  TeethScreening: MyString
+  TeethPreventative: MyString
+  TeethFollowup: MyString
+  PrescriberName: MyString
+  ScreenDate: 2023-10-26
+  ScreenComment: MyString
+  UntreatedCavities: 1
+  CarriesExperience: 1
+  Sealants: 1
+  ReferralS: 1
+  ProviderName: MyString
+  ProviderDate: 2023-10-26
+  PreventComment: MyString
+  FirstSealedNum: 1
+  SecondSealedNum: 1
+  OtherPermNum: 1
+  PrimarySealed: 1
+  FluorideVarnish: false
+  EvaluatorsName: MyString
+  EvaluatorDate: 2023-10-26
+  EvaluatorComment: MyString
+  RetainedSealant: 1
+  ReferredDT: false
+  ReferredUDT: false
+  SealantsRecd: 1
+  SealnatsNeeded: 1
+  Experienced: false
+  UntreatedDecayFollow: false
+  Services: MyString
+  ORHealthStatus: MyString

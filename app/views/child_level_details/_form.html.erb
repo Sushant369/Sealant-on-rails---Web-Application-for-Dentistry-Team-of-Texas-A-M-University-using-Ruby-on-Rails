@@ -1,0 +1,172 @@
+<%= form_with(model: child_level_detail) do |form| %>
+  <% if child_level_detail.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(child_level_detail.errors.count, "error") %> prohibited this child_level_detail from being saved:</h2>
+
+      <ul>
+        <% child_level_detail.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :PID, style: "display: block" %>
+    <%= form.text_field :PID %>
+  </div>
+
+  <div>
+    <%= form.label :TeethScreening, style: "display: block" %>
+    <%= form.text_field :TeethScreening %>
+  </div>
+
+  <div>
+    <%= form.label :TeethPreventative, style: "display: block" %>
+    <%= form.text_field :TeethPreventative %>
+  </div>
+
+  <div>
+    <%= form.label :TeethFollowup, style: "display: block" %>
+    <%= form.text_field :TeethFollowup %>
+  </div>
+
+  <div>
+    <%= form.label :PrescriberName, style: "display: block" %>
+    <%= form.text_field :PrescriberName %>
+  </div>
+
+  <div>
+    <%= form.label :ScreenDate, style: "display: block" %>
+    <%= form.date_field :ScreenDate %>
+  </div>
+
+  <div>
+    <%= form.label :ScreenComment, style: "display: block" %>
+    <%= form.text_field :ScreenComment %>
+  </div>
+
+  <div>
+    <%= form.label :UntreatedCavities, style: "display: block" %>
+    <%= form.number_field :UntreatedCavities %>
+  </div>
+
+  <div>
+    <%= form.label :CarriesExperience, style: "display: block" %>
+    <%= form.number_field :CarriesExperience %>
+  </div>
+
+  <div>
+    <%= form.label :Sealants, style: "display: block" %>
+    <%= form.number_field :Sealants %>
+  </div>
+
+  <div>
+    <%= form.label :ReferralS, style: "display: block" %>
+    <%= form.number_field :ReferralS %>
+  </div>
+
+  <div>
+    <%= form.label :ProviderName, style: "display: block" %>
+    <%= form.text_field :ProviderName %>
+  </div>
+
+  <div>
+    <%= form.label :ProviderDate, style: "display: block" %>
+    <%= form.date_field :ProviderDate %>
+  </div>
+
+  <div>
+    <%= form.label :PreventComment, style: "display: block" %>
+    <%= form.text_field :PreventComment %>
+  </div>
+
+  <div>
+    <%= form.label :FirstSealedNum, style: "display: block" %>
+    <%= form.number_field :FirstSealedNum %>
+  </div>
+
+  <div>
+    <%= form.label :SecondSealedNum, style: "display: block" %>
+    <%= form.number_field :SecondSealedNum %>
+  </div>
+
+  <div>
+    <%= form.label :OtherPermNum, style: "display: block" %>
+    <%= form.number_field :OtherPermNum %>
+  </div>
+
+  <div>
+    <%= form.label :PrimarySealed, style: "display: block" %>
+    <%= form.number_field :PrimarySealed %>
+  </div>
+
+  <div>
+    <%= form.label :FluorideVarnish, style: "display: block" %>
+    <%= form.check_box :FluorideVarnish %>
+  </div>
+
+  <div>
+    <%= form.label :EvaluatorsName, style: "display: block" %>
+    <%= form.text_field :EvaluatorsName %>
+  </div>
+
+  <div>
+    <%= form.label :EvaluatorDate, style: "display: block" %>
+    <%= form.date_field :EvaluatorDate %>
+  </div>
+
+  <div>
+    <%= form.label :EvaluatorComment, style: "display: block" %>
+    <%= form.text_field :EvaluatorComment %>
+  </div>
+
+  <div>
+    <%= form.label :RetainedSealant, style: "display: block" %>
+    <%= form.number_field :RetainedSealant %>
+  </div>
+
+  <div>
+    <%= form.label :ReferredDT, style: "display: block" %>
+    <%= form.check_box :ReferredDT %>
+  </div>
+
+  <div>
+    <%= form.label :ReferredUDT, style: "display: block" %>
+    <%= form.check_box :ReferredUDT %>
+  </div>
+
+  <div>
+    <%= form.label :SealantsRecd, style: "display: block" %>
+    <%= form.number_field :SealantsRecd %>
+  </div>
+
+  <div>
+    <%= form.label :SealnatsNeeded, style: "display: block" %>
+    <%= form.number_field :SealnatsNeeded %>
+  </div>
+
+  <div>
+    <%= form.label :Experienced, style: "display: block" %>
+    <%= form.check_box :Experienced %>
+  </div>
+
+  <div>
+    <%= form.label :UntreatedDecayFollow, style: "display: block" %>
+    <%= form.check_box :UntreatedDecayFollow %>
+  </div>
+
+  <div>
+    <%= form.label :Services, style: "display: block" %>
+    <%= form.text_field :Services %>
+  </div>
+
+  <div>
+    <%= form.label :ORHealthStatus, style: "display: block" %>
+    <%= form.text_field :ORHealthStatus %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

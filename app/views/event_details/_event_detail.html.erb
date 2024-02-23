@@ -1,0 +1,66 @@
+<div id = "<%= dom_id event_detail %>" class="container mt-5">
+<h2>Sealant Event Data</h2>
+  <div class="mb-3">
+    <strong>Event Date: </strong>
+    <%= event_detail.EventDate %>
+    &nbsp;&nbsp;&nbsp;
+    <strong>School: </strong>
+    <%= event_detail.School %>
+    &nbsp;&nbsp;&nbsp;
+    <strong> Consent Forms Distributed: </strong>
+    <%= event_detail.ConsentFD %>
+  </div>
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Labor</th> <!-- Empty cell for spacing -->
+        <th style="text-align: center;">Dentist</th>
+        <th style="text-align: center;">Hygienist</th>
+        <th style="text-align: center;">Assistant</th>
+        <th style="text-align: center;">Other</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Total hours at school </td>
+        <td style="text-align: center;"><%= event_detail.DenHrs %></td>
+        <td style="text-align: center;"><%= event_detail.HygHours %></td>
+        <td style="text-align: center;"><%= event_detail.AssistantHrs %></td>
+        <td style="text-align: center;"><%= event_detail.OtherHrs %></td>
+      </tr>
+      <tr>
+        <td>Total hours traveling to and from school  </td>
+        <td style="text-align: center;"><%= event_detail.DenTravelHrs %></td>
+        <td style="text-align: center;"><%= event_detail.HygTravelHrs %></td>
+        <td style="text-align: center;"><%= event_detail.AssistantTravelHrs %></td>
+        <td style="text-align: center;"><%= event_detail.OtherTravelHrs %></td>
+      </tr>
+      <tr>
+        <td>Total miles traveling to and from school  </td>
+        <td style="text-align: center;"><%= event_detail.DenTravelMil %></td>
+        <td style="text-align: center;"><%= event_detail.HygTravelMil %></td>
+        <td style="text-align: center;"><%= event_detail.AssistantTravelMil %></td>
+        <td style="text-align: center;"><%= event_detail.OtherTravelMiles %></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+      <strong>Vehicles</strong>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>No. owned/operated by SSP driven to event</td>
+        <td style="text-align: center;"><%= event_detail.NumberOfSSPDriven %></td>
+      </tr>
+      <tr>
+        <td>Total miles driven for event</td>
+        <td style="text-align: center;"><%= event_detail.TotalMilesDriven %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

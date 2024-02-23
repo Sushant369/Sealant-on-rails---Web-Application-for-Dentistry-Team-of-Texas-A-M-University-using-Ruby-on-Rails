@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Statistics</title>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      .chart-container {
+        width: 48%; /* Adjust the width as needed */
+        float: left;
+        margin: 10px; 
+      }
+      .chart-box {
+        width: 30%;
+        <!-- display: inline-block; -->
+        margin: 10px;
+        box-sizing: border-box;
+      }
+
+      canvas {
+          width: 100%;
+          height: 400px;
+      }
+
+    </style>
+</head>
+<body>
+    
+    <h2><strong>Event Level Data </strong></h2>
+    <%= button_to "Show Table", event_details_path, method: :get, class: "btn btn-primary" %>
+    <br>
+    <div class="chart-box">
+      <p><strong>Consent Forms Distributed </strong><p>
+      <canvas id="chartConFD"></canvas>
+    </div>
+    <div class="chart-box">
+      <p><strong>Labor Data - Hours at School</strong><p>
+      <canvas id="groupedChart1"></canvas>
+    </div>
+    <div class="chart-box">
+      <p><strong>Vehicle Data</strong><p>
+      <canvas id="groupedChart2"></canvas>
+    </div>
+
+    <h2><strong>Overall Events Data </strong></h2>
+    <div class="chart-container" id="chart1">
+        <p><strong>Total hours at school</strong><p>
+        <canvas id="chart1Canvas" width="400" height="400"></canvas>
+    </div>
+    <div class="chart-container" id="chart2">
+        <p><strong>Total travel hours </strong><p>
+        <canvas id="chart2Canvas" width="400" height="400"></canvas>
+    </div>
+    <div class="chart-container" id="chart3">
+        <p><strong>Total travel miles </strong><p>
+        <canvas id="chart3Canvas" width="400" height="400"></canvas>
+    </div>
+
+    <script>
+      var ctx1 = document.getElementById('chart1Canvas').getContext('2d');
+      var chart1 = new Chart(ctx1, {
+        type: 'pie',
+        data: <%= @school_hrs_chart_data.to_json.html_safe %>,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false
+        }
+      });
+
+      var ctx2 = document.getElementById('chart2Canvas').getContext('2d');
+      var chart2 = new Chart(ctx2, {
+        type: 'pie',
+        data: <%= @travel_hrs_chart_data.to_json.html_safe %>,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false
+        }
+      });
+
+      var ctx3 = document.getElementById('chart3Canvas').getContext('2d');
+      var chart3 = new Chart(ctx3, {
+        type: 'pie',
+        data: <%= @travel_mil_chart_data.to_json.html_safe %>,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false
+        }
+      });
+
+      var ctxConFD = document.getElementById('chartConFD').getContext('2d');
+      var chartConFD = new Chart(ctxConFD, {
+        type: 'bar',
+        data: <%= @chart_data_con_forms.to_json.html_safe %>,
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+
+      var ctxGrouped1 = document.getElementById('groupedChart1').getContext('2d');
+      var groupedChart1 = new Chart(ctxGrouped1, {
+        type: 'bar',
+        data: <%= @chart_data1.to_json.html_safe %>,
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+
+      var ctxGrouped2 = document.getElementById('groupedChart2').getContext('2d');
+      var groupedChart2 = new Chart(ctxGrouped2, {
+        type: 'bar',
+        data: <%= @chart_data2.to_json.html_safe %>,
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    </script>
+</body>
+</html>

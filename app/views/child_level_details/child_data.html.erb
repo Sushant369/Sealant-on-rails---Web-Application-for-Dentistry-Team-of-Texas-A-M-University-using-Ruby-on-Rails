@@ -1,0 +1,59 @@
+<title>Think of a Title</title>
+
+<%= stylesheet_link_tag "childdata", "data-turbo-track": "reload" %>
+
+<%= javascript_include_tag "formSubmission", "popupHandling", "updateFields", "visibilityLogic" %>
+
+<%= render partial: 'statistics' %>
+<br/>
+<%= render partial: 'buttons' %>
+
+
+<table id="table1">
+    <%= render partial: 'tooth_table1' %>
+</table>
+
+<table id="table2">
+    <%= render partial: 'tooth_table2' %>
+</table>
+
+<!-- Popup containers -->
+  <%= render partial: 'popup_container' %>
+<br/>
+<button class="button-primary" id="showPreventativeFormButton">
+  Preventative Form
+</button>
+<button class="button-primary" id="showFollowUpFormButton">
+  FollowUp Form
+</button>
+<button class="button-primary" onclick="goBack()">
+  Back
+</button>
+<br/>
+<%= form_with model: @child_level_detail, url: child_level_details_path, local: true, id: 'unique-form-id' do |form| %>
+<div id="preventativeFormContainer" style="display: none;">
+  <%= render 'preventative_form', form: form %>
+<br/>
+</div>
+
+<div id="followUpFormContainer" style="display: none;">
+  <%= render 'followup_form', form: form %>
+<br/>
+</div>
+<br/>
+  <%= form.hidden_field :PID, value: @pid %>
+
+  <input type="hidden" id ="TeethScreening" name="child_level_detail[TeethScreening]">
+  <input type="hidden" id ="TeethPreventative" name="child_level_detail[TeethPreventative]">
+  <input type="hidden" id ="TeethFollowup" name="child_level_detail[TeethFollowup]">
+<input type="submit" value="Submit" id="submitButton">
+<% end %>
+
+
+
+<script>
+function goBack() {
+window.history.back();
+}
+</script>
+

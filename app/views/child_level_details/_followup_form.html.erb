@@ -1,0 +1,86 @@
+  <div class="form-group">
+    <%= form.label :EvaluatorsName, "Evaluator's Name" %>
+    <%= form.text_area :EvaluatorsName %>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :Date, "Date" %>
+    <%= form.date_field :Date %>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :EvaluatorComment, "Comment" %>
+    <%= form.text_area :EvaluatorComment, id: 'comment', rows: 2, cols: 20 %>
+  </div>
+  <br/>
+
+  <br/>
+  <div class="form-group">
+    <h3>Data for SEALS</h3>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :RetainedSealant, "Number of teeth with a retained sealant (0-8):" %>
+    <%= form.text_field :RetainedSealant, id: 'Number_of_teeth_with_a_retained_sealant' %>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :ReferredDT, "Referred for Dental Treatment?" %>
+    <%= form.radio_button :ReferredDT, 'yes', id: 'Referred_for_Dental_Treatment_Yes' %>
+    <%= form.label :ReferredDT_yes, 'Yes' %>
+    <%= form.radio_button :ReferredDT, 'no', id: 'Referred_for_Dental_Treatment_No' %>
+    <%= form.label :ReferredDT_no, 'No' %>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :ReferredUDT, "Referred for urgent Dental Treatment?" %>
+    <%= form.radio_button :ReferredUDT, 'yes', id: 'Referred_for_urgent_Dental_Treatment_Yes' %>
+    <%= form.label :ReferredUDT_yes, 'Yes' %>
+    <%= form.radio_button :ReferredUDT, 'no', id: 'Referred_for_urgent_Dental_Treatment_No' %>
+    <%= form.label :ReferredUDT_no, 'No' %>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :SealantsRecd, "Total Number of Sealants received:" %>
+    <%= form.text_field :SealantsRecd, id: 'Total_Sealants_received' %>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :SealnatsNeeded, "Total Number of Sealants needed:" %>
+    <%= form.text_field :SealnatsNeeded, id: 'Total_Sealants_needed' %>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :Experienced, "Did the patients have caries experience?" %>
+    <%= form.radio_button :Experienced, 'yes', id: 'Did_the_patients_have_caries_experience_Yes' %>
+    <%= form.label :Experienced_yes, 'Yes' %>
+    <%= form.radio_button :Experienced, 'no', id: 'Did_the_patients_have_caries_experience_No' %>
+    <%= form.label :Experienced_no, 'No' %>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :UntreatedDecayFollow, "Did the patient have untreated decay?" %>
+    <%= form.radio_button :UntreatedDecayFollow, 'yes', id: 'Did_the_patient_have_untreated_decay_Yes' %>
+    <%= form.label :UntreatedDecayFollow_yes, 'Yes' %>
+    <%= form.radio_button :UntreatedDecayFollow, 'no', id: 'Did_the_patient_have_untreated_decay_No' %>
+    <%= form.label :UntreatedDecayFollow_no, 'No' %>
+  </div>
+  <br/>
+
+  <div class="form-group">
+    <%= form.label :Services, "Services the patient received" %>
+    <%= form.select :Services, ['Sealants', 'Fluoride_Varnish', 'Oral_Assessment', 'Prophylaxes'], prompt: '--Please select an option--' %>
+  </div>
+  <br/>
+
+  <%= form.label :ORHealthStatus, "Overall Oral Health Status:" %><br>
+  <%= form.text_area :ORHealthStatus, id: 'Overall_Oral_Health_Status', rows: 4, cols: 50 %>
+  <br/>

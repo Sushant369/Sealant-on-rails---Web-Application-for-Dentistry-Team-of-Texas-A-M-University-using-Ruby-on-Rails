@@ -1,0 +1,65 @@
+<style>
+.ScreeningButton {
+border: none;
+background-color: #007bff; /* Change to your preferred background color */
+color: #fff; /* Text color */
+font: inherit;
+text-align: center;
+padding: 8px 16px; /* Adjust padding as needed */
+cursor: pointer;
+border-radius: 4px; /* Add rounded corners */
+transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Hover effect */
+.ScreeningButton:hover {
+background-color: #0056b3; /* Change to your preferred hover background color */
+transform: scale(1.05);
+}
+</style>
+
+<div id = "<%= dom_id patient_detail %>", class="container mt-5">
+<table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th style="text-align: center;">Patient id</th>
+        <th style="text-align: center;">Program Name</th>
+        <th style="text-align: center;">School Name</th>
+        <th style="text-align: center;">Age</th>
+        <th style="text-align: center;">Date</th>
+        <th style="text-align: center;">Insurance</th>
+        <th style="text-align: center;">Grade</th>
+        <th style="text-align: center;"> </th>
+      </tr>
+    </thead>
+    <tbody>
+    
+    <tr>
+      <td style="text-align: center;"><%= patient_detail.PatientId %> </td>
+      <td style="text-align: center;"><%= patient_detail.ProgramName %></td>
+      <td style="text-align: center;"><%= patient_detail.SchoolName %></td>
+      <td style="text-align: center;"><%= patient_detail.Age %></td>
+      <td style="text-align: center;"><%= patient_detail.Date %></td>
+      <td style="text-align: center;"><%= patient_detail.Insurance %></td>
+      <td style="text-align: center;"><%= patient_detail.Grade %></td>
+      <td>
+        <button class="ScreeningButton" id="screeningButton">
+          Forms
+        </button>
+      </td>
+<!--      <td><%#= button_to "Destroy this patients detail", patient_detail, method: :delete %></td>      -->
+    </tr>
+    </tbody>
+
+</table>
+    </div>
+
+  <script>
+
+    // Add a click event listener to the "Next" button
+  screeningButton.addEventListener('click', function() {
+    // Redirect to the screening.html.erb page
+      window.location.href = '/child_data?patient_detail_id=<%= patient_detail.id %>';
+  });
+
+</script>

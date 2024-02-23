@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Think of a Title</title>
+    <style>
+        /* Styling for the table */
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Styling for the buttons */
+        .button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            padding: 8px 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        /* Styling for the popup container (initially hidden) */
+        .popup-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* CSS for the smaller popup */
+        .popup-box-small {
+            background-color: #fff;
+            padding: 10px; /* Smaller padding */
+            border-radius: 5px;
+            text-align: left; /* Align options vertically */
+            max-height: 300px; /* Maximum height to enable scrolling if many options */
+            overflow-y: auto; /* Enable vertical scrolling if needed */
+        }
+
+        /* Display radio buttons and labels vertically */
+        .popup-box-small {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: left;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .popup-box-small label {
+            display: block;
+        }
+
+        .popup-box-small input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        button.Preventative, button.FollowUp {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        button.Preventative:hover, button.FollowUp:hover {
+            background-color: #0056b3;
+        }
+
+/* You can further adjust the width, height, and styling as per your requirements */
+
+    </style>
+</head>
+<body>
+
+  <button class="button">
+    Screening
+  </button>
+
+  <button class="button">
+    Preventative
+  </button>
+
+  <button class="button">
+    Follow Up
+  </button>
+
+
+
+<!--    Screening code starts here-->
+    <table id="table1">
+      <tr>
+        <!-- Create buttons for each tooth -->
+        <% (1..3).each do |tooth_number| %>
+          <td><button class="button" data-popup="popup<%= tooth_number %>" onclick="openPopup('popup<%= tooth_number %>')"><%= tooth_number %></button></td>
+        <% end %>
+        <% (4..13).each do |tooth_number| %>
+          <td>
+            <button class="button" data-popup="popup<%= tooth_number %>" onclick="openPopup('popup<%= tooth_number %>')">
+              <%= tooth_number %><br><%= ('A'..'J').to_a[tooth_number - 4] %>
+            </button>
+          </td>
+        <% end %>
+        <% (14..16).each do |tooth_number| %>
+          <td>
+            <button class="button" data-popup="popup<%= tooth_number %>" onclick="openPopup('popup<%= tooth_number %>')">
+              <%= tooth_number %>
+            </button>
+          </td>
+        <% end %>
+      </tr>
+      <tr>
+        <% (1..16).each do |tooth_number|%>
+            <td data-cell="popup<%= tooth_number %>">Make a selection</td>
+        <% end %>
+      </tr>
+      <tr>
+        <% (1..16).each do |tooth_number| %>
+          <td>
+            <% if tooth_number == 3 || tooth_number == 14 %>
+              <p>Make a Selection for Preventative</p>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+      <tr>
+        <% (1..16).each do |tooth_number| %>
+          <td>
+            <% if tooth_number == 3 || tooth_number == 14 %>
+              <p>Make a Selection for Follow Up</p>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+      </table>
+      <table id="table2">
+      <tr>
+        <% (32).downto(30).each do |tooth_number| %>
+          <td><button class="button" data-popup="popup<%= tooth_number %>" onclick="openPopup('popup<%= tooth_number %>')"><%= tooth_number %></button></td>
+        <% end %>
+        <% (29).downto(20).each do |tooth_number| %>
+          <td>
+            <button class="button" data-popup="popup<%= tooth_number %>" onclick="openPopup('popup<%= tooth_number %>')">
+              <%= ('T'.ord).downto('K'.ord).map(&:chr)[29 - tooth_number] %> <br> <%= tooth_number %>
+            </button>
+          </td>
+        <% end %>
+        <% (19).downto(17).each do |tooth_number| %>
+          <td>
+            <button class="button" data-popup="popup<%= tooth_number %>" onclick="openPopup('popup<%= tooth_number %>')">
+              <%= tooth_number %>
+            </button>
+          </td>
+        <% end %>
+      </tr>
+      <tr>
+        <% (32).downto(17).each do |tooth_number|%>
+          <td data-cell="popup<%= tooth_number %>">Make a Selection</td>
+        <% end %>
+      </tr>
+      <tr>
+        <% (32).downto(17).each do |tooth_number| %>
+          <td>
+            <% if tooth_number == 30 || tooth_number == 19 %>
+              <p>Make a Selection for Preventative</p>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+      <tr>
+        <% (32).downto(17).each do |tooth_number| %>
+          <td>
+            <% if tooth_number == 30 || tooth_number == 19 %>
+              <p>Make a Selection for Follow Up</p>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+    </table>
+    <br>
+    <% (1..32).each do |tooth_number| %>
+      <div class="popup-container" id="popup<%= tooth_number %>">
+        <div class="popup-box-small">
+          <p><%= tooth_number %></p>
+          <% radio_options = [
+            { value: "D", label: "D - Decay" },
+            { value: "F", label: "F - Filled" },
+            { value: "M", label: "M - Missing" },
+            { value: "S", label: "S - Sealant Present" },
+            # { value: "PS", label: "PS - Prescribe Present" },
+            { value: "RS", label: "RS - Recommended Reseal" },
+            { value: "no mark", label: "No Treatment (No Mark)" }
+          ] %>
+          <% radio_options.each do |option| %>
+            <label>
+              <input type="radio" name="radio<%= tooth_number %>" value="<%= option[:value] %>">
+              <%= option[:label] %>
+            </label>
+          <% end %>
+          <button onclick="closePopup('<%= tooth_number %>','popup<%= tooth_number %>')">Close</button>
+        </div>
+      </div>
+    <% end %>
+<br/>
+
+<%= form_with model: @child_level_detail, url: child_level_details_path, local: true, id: 'unique-form-id' do |form| %>
+    <%# <form> %>
+      <div>
+        <label for="prescriberName">Sealant Prescriber’s Signature</label>
+        <input type="text" id="prescriberName" name="child_level_detail[PrescriberName]">
+      </div>
+      <br/>
+      <div>
+        <label for="date">Date</label>
+        <input type="date" id="date" name="child_level_detail[ScreenDate]">
+      </div>
+      <br/>
+      <div>
+        <label for="comment">Comment</label>
+        <textarea id="comment" name="child_level_detail[ScreenComment]" rows="2" cols="20"></textarea>
+      </div>
+      <br/>
+      <div>
+        <label for="providerName">Provider's Name</label>
+        <input type="text" id="providerName" name="child_level_detail[ProviderName]">
+      </div>
+      <br/>
+
+      <div>
+        <label for="date">Date</label>
+        <input type="date" id="date" name="child_level_detail[ProviderDate]">
+      </div>
+      <br/>
+
+      <div>
+        <label for="comment">Comment</label>
+        <textarea id="comment"  rows="2" cols="20" name="child_level_detail[PreventComment]"></textarea>
+      </div>
+      <br/>
+
+      <div>
+        <h3>Data for SEALS</h3>
+      </div>
+
+      <div>
+        <label for="num1stMolarsSealed">Number of 1st molars sealed</label>
+        <input type="text" id="num1stMolarsSealed" name="child_level_detail[FirstSealedNum]">
+      </div>
+      <br/>
+
+      <div>
+        <label for="num2ndMolarsSealed">Number of 2nd molars sealed</label>
+        <input type="text" id="num2ndMolarsSealed" name="child_level_detail[SecondSealedNum]">
+      </div>
+      <br/>
+
+      <div>
+        <label for="numOtherSealed">Number of other permanent sealed</label>
+        <input type="text" id="numOtherSealed"name="child_level_detail[OtherPermNum]" >
+      </div>
+      <br/>
+
+      <div>
+        <label for="numPrimaryTeethSealed">Number of primary teeth sealed</label>
+        <input type="text" id="numPrimaryTeethSealed" name="child_level_detail[PrimarySealed]">
+      </div>
+      <br/>
+
+      <div>
+        <label for="fluorideVarnish">Fluoride varnish provided</label>
+        <select name="child_level_detail[FluorideVarnish]" id="fluorideVarnish">
+          <option value="">--Please select an option--</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      <br/>
+    <%# </form> %>
+<br/>
+    <%# <form> %>
+      <div>
+        <label for="Evaluator's Name">Evaluator's Name</label>
+        <input type="text" id="1st-molars" name="child_level_detail[EvaluatorsName]">
+      </div>
+      <br/>
+      <div>
+        <label for="date">Date</label>
+        <label for="blank"></label>
+        <input type="date" id="date" name="date" name="child_level_detail[EvaluatorDate]"><br>
+      </div>
+      <br/>
+      <div>
+        <label for="Comment">Comment</label>
+        <textarea id="comment" rows="2" cols="20" name="child_level_detail[EvaluatorComment]"></textarea><br>
+      </div>
+      <br/>
+      <br/>
+      <div>
+        <H3>Data for SEALS</H3>
+      </div>
+      <div>
+        <label for="Number of teeth with retained sealant">Number of teeth with a retained sealant (0-8):</label>
+        <input type="text" id="Number_of_teeth_with_a_retained_sealant" name="child_level_detail[RetainedSealant]">
+      </div>
+      <br/>
+
+      <div>
+        <label for="Referred for Dental Treatment">Referred for Dental Treatment?</label>
+        <label for="Yes">   </label>
+        <label for="Yes">Yes</label>
+        <input type="radio" name="child_level_detail[ReferredDT]" value="yes" id="Referred_for_Dental_Treatment_Yes">
+        <label for="No">No</label>
+        <input type="radio" name="child_level_detail[ReferredDT]" value="no" id="Referred_for_Dental_Treatment_No">
+      </div>
+
+      <br/>
+
+      <div>
+        <label for="Referred for urgent Dental Treatment">Referred for urgent Dental Treatment?</label>
+        <label for="blank">   </label>
+        <label for="Yes">Yes</label>
+        <input type="radio" name="child_level_detail[ReferredUDT]" value="yes" id="Referred_for_urgent_Dental_Treatment_Yes">
+        <label for="No">No</label>
+        <input type="radio" name="child_level_detail[ReferredUDT]" value="no" id="Referred_for_urgent_Dental_Treatment_No">
+      </div>
+      <br/>
+
+      <div>
+        <label for="Total Number of Sealants received">Total Number of Sealants received:</label>
+        <input type="text" id="Total_Sealants_received" name="child_level_detail[SealantsRecd]">
+      </div>
+      <br/>
+
+      <div>
+        <label for="Total Number of Sealants needed">Total Number of Sealants needed:</label>
+        <input type="text" id="Total_Sealants_needed" name="child_level_detail[SealnatsNeeded]">
+      </div>
+      <br/>
+
+      <div>
+        <label for="Did the patients have caries experience">Did the patients have caries experience?</label>
+        <label for="blank">   </label>
+        <label for="Yes">Yes</label>
+        <input type="radio" name="child_level_detail[Experienced]" value="yes" id="Did_the_patients_have_caries_experience_Yes">
+        <label for="No">No</label>
+        <input type="radio" name="child_level_detail[Experienced]" value="no" id="Did_the_patients_have_caries_experience_No">
+      </div>
+      <br/>
+
+      <div>
+        <label for="Did the patient have untreated decay">Did the patient have untreated decay?</label>
+        <label for="blank">   </label>
+        <label for="Yes">Yes</label>
+        <input type="radio" name="child_level_detail[UntreatedDecayFollow]" value="yes" id="Did_the_patient_have_untreated_decay_Yes">
+        <label for="No">No</label>
+        <input type="radio" name="child_level_detail[UntreatedDecayFollow]" value="no" id="Did_the_patient_have_untreated_decay_No">
+      </div>
+      <br/>
+
+      <div>
+        <label for="Services the patient received">Services the patient received</label>
+        <label for="blank">   </label>
+        <select name="child_level_detail[Services]" >
+          <option value="">--Please select an option--</option>
+          <option value="Sealants">Sealants</option>
+          <option value="Fluoride_Varnish">Fluoride Varnish</option>
+          <option value="Oral_Assessment">Oral Assessment</option>
+          <option value="Prophylaxes">Prophylaxes</option>
+        </select>
+      </div>
+      <br/>
+      <label for="Overall Oral Health Status">Overall Oral Health Status:</label><br>
+      <textarea id="Overall_Oral_Health_Status" name="child_level_detail[ORHealthStatus]" rows="4" cols="50"></textarea><br>
+
+    <%# </form> %>
+    <br/>
+
+    <p>Untreated Cavities: <span contenteditable="false" id="untreatedCavities" name="child_level_detail[UntreatedCavities]">0</span></p>
+    <p>Caries Experience: <span contenteditable="false" id="cariesExperience" name="child_level_detail[CarriesExperience]">0</span></p>
+    <p>Sealants Present:  <span contenteditable="false" id="sealantPresent" name="child_level_detail[Sealants]">0</span></p>
+    <p>Referred for treatment: <span contenteditable="false" id="referredTreatment" name="child_level_detail[ReferralS]">0</span></p>
+<br/>
+  <input type="hidden" id ="TeethScreening" name="child_level_detail[TeethScreening]">
+  <input type="hidden" id ="TeethPreventative" name="child_level_detail[TeethPreventative]">
+  <input type="hidden" id ="TeethFollowup" name="child_level_detail[TeethFollowup]">
+  
+  <input type="submit" value="Submit" id="submitButton">
+<% end %>
+</body>
+<script>
+
+    ///Code for Screening
+    const selectedOptions = {}; // Object to hold selected options for each popup
+
+    // Function to open the popup and set selected option
+    function openPopup(popupId) {
+        // console.log(selected)
+        const popup = document.getElementById(popupId);
+
+        // Show the popup
+        if (popup) {
+            popup.style.display = 'block';
+        }
+    }
+
+    // Function to save the selected option and close the popup
+    function closePopup(Id, popupId) {
+      console.log(selectedOptions);
+        const radioOptions = document.querySelectorAll(`input[name="radio${Id}"]`);
+        const cell = document.querySelector(`td[data-cell="${popupId}"]`); // Add this line to select the corresponding cell
+
+        // Find the selected option for the specific popup
+        radioOptions.forEach(option => {
+            if (option.checked) {
+                selectedOptions[Id] = option.value; // Save the selected option to the object
+                cell.textContent = selectedOptions[popupId]; // Set the cell text to the selected option
+            }
+        });
+
+        // Close the popup
+        closePopupActual(popupId);
+        updateUntreatedCavities();
+        updateReferredTreatment();
+        updateCariesExperience();
+        updateSealantPresent();
+    }
+
+    // Function to close the popup
+    function closePopupActual(popupId) {
+        const popup = document.getElementById(popupId);
+        if (popup) {
+            popup.style.display = 'none';
+        }
+    }
+
+    function updateUntreatedCavities() {
+        let untreatedCavitiesCount = 0;
+
+        for (const tooth in selectedOptions) {
+            if (selectedOptions[tooth] === 'D') {
+                untreatedCavitiesCount++;
+            }
+        }
+
+        const untreatedCavitiesElement = document.getElementById('untreatedCavities');
+
+        // Update the "Untreated Cavities" field
+        untreatedCavitiesElement.textContent = untreatedCavitiesCount;
+    }
+
+    function updateReferredTreatment() {
+        let ReferredTreatmentCount = 0;
+
+        for (const tooth in selectedOptions) {
+            if (selectedOptions[tooth] === 'RS') {
+                ReferredTreatmentCount++;
+            }
+        }
+
+        const referredTreatmentElement = document.getElementById('referredTreatment');
+
+        // Update the "Untreated Cavities" field
+        referredTreatmentElement.textContent = ReferredTreatmentCount;
+    }
+
+    function updateCariesExperience() {
+        let CariesExperienceCount = 0;
+
+        for (const tooth in selectedOptions) {
+            if (selectedOptions[tooth] === 'F') {
+                CariesExperienceCount++;
+            }
+        }
+
+        const cariesExperienceElement = document.getElementById('cariesExperience');
+
+        // Update the "Untreated Cavities" field
+        cariesExperienceElement.textContent = CariesExperienceCount;
+    }
+
+    function updateSealantPresent() {
+        let SealantPresentCount = 0;
+
+        for (const tooth in selectedOptions) {
+            if (selectedOptions[tooth] === 'S') {
+                SealantPresentCount++;
+            }
+        }
+
+        const sealantPresentElement = document.getElementById('sealantPresent');
+
+        // Update the "Untreated Cavities" field
+        sealantPresentElement.textContent = SealantPresentCount;
+    }
+
+    console.log(selectedOptions);
+//store data in TeethScreening placeholder
+
+// document.addEventListener("submit", function(event) {
+//   console.log("inside");
+//   event.preventDefault();
+
+//   // Check if the form has the specified unique 'id'
+//   if (event.target.id === "unique-form-id") {
+//     var form = event.target;
+
+//     // // Your code to handle the specific form
+//     // // For example, you can access form fields and submit the form
+//     // var dynamicData = {
+//     //   key1: "value1",
+//     //   key2: "value2",
+//     //   // ... Add more data here ...
+//     // };
+
+//     var TeethScreeningStr = JSON.stringify(selectedOptions);
+//     var TeethScreeningInput = form.querySelector('[name="teeth_screening"]');
+    
+
+//     form.submit();
+//   }
+// });
+
+document.addEventListener("submit", function(event) {
+  event.preventDefault();
+  console.log("inside");
+
+  // Check if the submit button with the specified ID was clicked
+  if (event.submitter && event.submitter.id === "submitButton") {
+    var form = event.target;
+
+    // Your code to handle the specific form
+    // For example, you can access form fields and submit the form
+    var dynamicData = {
+      key1: "value1",
+      key2: "value2",
+      // ... Add more data here ...
+    };
+
+    var TeethScreeningStr = JSON.stringify(selectedOptions);
+    var TeethScreeningInput = form.querySelector('[name="child_level_detail[TeethScreening]"]');
+    TeethScreeningInput.value = TeethScreeningStr;
+
+    form.submit();
+  }
+});
+
+
+
+
+</script>
+</html>

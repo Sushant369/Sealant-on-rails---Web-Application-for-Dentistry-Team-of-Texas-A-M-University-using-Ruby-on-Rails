@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Apply styles to the table */
+        table {
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        /* Style table headers */
+        th {
+        background-color: #333;
+        color: white;
+        padding: 8px;
+        text-align: left;
+        }
+
+        /* Style alternating rows */
+        tr:nth-child(even) {
+        background-color: #f2f2f2;
+        }
+
+        /* Style table data cells */
+        td {
+        padding: 8px;
+        border: 1px solid #ddd;
+        }
+
+        header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        }
+
+        main {
+        max-width: 800px;
+        margin: 0 auto;
+        }
+
+        footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+        }
+
+        .chart-box {
+            width: 40%;
+            display: inline-block;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        canvas {
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h1>School Stats Version 2</h1>
+
+    <br>
+    <div class="chart-box">
+      <canvas id="groupedChart1"></canvas>
+    </div>
+    
+<table>
+    <tr>
+        <th>School Name</th>
+        <th>Date</th>
+        <th>Children Screened</th>
+        <th>Children received Sealants</th>
+        <th>Teeth Sealed</th>
+        <th>Children received Fluoride Varnish</th>
+    </tr>
+    <tr>
+        <% @school_data.each do |data| %>
+            <tr>
+                <td><%= data.SchoolName %></td>
+                <td><%= data.Date %></td>
+                <td><%= data.children_screened %></td>
+                <td><%= data.children_rec_sealants %></td>
+                <td><%= data.teeth_sealed %></td>
+                <td><%= data.children_with_fluoride %></td>
+            </tr>
+        <% end %>
+    </tr>
+</table>
+<script>
+    var ctxGrouped1 = document.getElementById('groupedChart1').getContext('2d');
+        var groupedChart1 = new Chart(ctxGrouped1, {
+            type: 'bar',
+            data: <%= @chart_data1.to_json.html_safe %>,
+            options: {
+            scales: {
+                y: {
+                beginAtZero: true
+                }
+            }
+            }
+        });
+</script>
+</body>
+</html>

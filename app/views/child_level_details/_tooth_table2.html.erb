@@ -1,0 +1,50 @@
+<tr class="hide-row">
+  <% (32).downto(30).each do |tooth_number| %>
+    <td>
+      <%= tooth_number %>
+    </td>
+  <% end %>
+  <% (29).downto(20).each do |tooth_number| %>
+    <td>
+        <%= ('T'.ord).downto('K'.ord).map(&:chr)[29 - tooth_number] %> <br> <%= tooth_number %>
+    </td>
+  <% end %>
+  <% (19).downto(17).each do |tooth_number| %>
+    <td>
+        <%= tooth_number %>
+    </td>
+  <% end %>
+</tr>
+<!--        second preventative table starts here-->
+<tr class="hide-row">
+  <% (32).downto(17).each do |tooth_number|%>
+    <td data-cell="popup<%= tooth_number %>">
+      <button class="button" data-popup="popup<%= tooth_number %>" onclick="openPopup('popup<%= tooth_number %>')">
+      Make a Selection
+      </button>
+    </td>
+  <% end %>
+</tr>
+<tr class="hide-row">
+  <% (32).downto(17).each do |tooth_number| %>
+    <td>
+      <% if tooth_number == 30 || tooth_number == 19 %>
+        <button class="button" data-popup="popup<%= tooth_number %>" onclick="openPopup('popup<%= tooth_number %>')">
+        Make a Selection for Preventative
+        </button>
+      <% end %>
+    </td>
+  <% end %>
+</tr>
+<!--        second follow up table starts here-->
+<tr class="hide-row">
+  <% (32).downto(17).each do |tooth_number| %>
+    <td>
+      <% if tooth_number == 30 || tooth_number == 19 %>
+        <button class="button" data-popup="popup<%= tooth_number %>" onclick="openPopup('popup<%= tooth_number %>')">
+        Make a Selection for Follow Up
+        </button>
+      <% end %>
+    </td>
+  <% end %>
+</tr>

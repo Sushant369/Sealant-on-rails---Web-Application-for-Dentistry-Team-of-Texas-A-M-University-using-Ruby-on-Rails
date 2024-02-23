@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Child level details</h1>
+
+<div id="child_level_details">
+  <% @child_level_details.each do |child_level_detail| %>
+    <%= render child_level_detail %>
+    <p>
+      <%= link_to "Show this child level detail", child_level_detail %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New child level detail", new_child_level_detail_path %>

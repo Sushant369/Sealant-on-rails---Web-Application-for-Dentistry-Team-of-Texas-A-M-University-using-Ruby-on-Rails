@@ -1,0 +1,270 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/* auth forms */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import "font-awesome";
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  background: #f5f5f5;
+}
+
+.main-container{
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.container{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+}
+
+.logo1 img {
+  width: 500px; /* Set the width of your logo */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.omniauth-container{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #f5f5f5;
+}
+
+h1{
+  font-size: 24px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+label{
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+}
+
+form{
+  width: 400px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input{
+  width: 100%;
+  background: #f5f5f5;
+  border: 0;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+input[type="submit"]{
+  width: 100%;
+  background: #333;
+  color: #fff;
+  border: 0;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+input[type="submit"]:hover{
+  background: #555;
+}
+
+button{
+  width: 100%;
+  background: #333;
+  color: #fff;
+  border: 0;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+button:hover{
+  background: #555;
+}
+
+p{
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-top: 20px;
+}
+
+h3{
+  font-size: 24px;
+  font-weight: 500;
+  color: #333;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+a{
+  color: rgb(18, 46, 204);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.home{
+  justify-content: center;
+}
+
+h2{
+  font-size: 24px;
+  font-weight: 500;
+  color: #333;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+
+.omniauth-container form{
+  box-shadow: none;
+  background: none;
+  padding: 30px;
+  width: 50%;
+  margin-top: -50px;
+}
+
+.omniauth-container form i{
+  margin-right: 15px;
+}
+
+.google{
+  background:rgb(219,68,55);
+  color: #fff;
+  border: 1px solid rgb(219,68,55);
+}
+
+.google:hover{
+  background:rgb(255, 255, 255);
+  color: rgb(219,68,55);
+  border: 1px solid rgb(219,68,55);
+}
+
+/* Navigation Container Styles */
+.navigation-container {
+  background: transparent;
+  padding: 10px;
+  text-align: center;
+  /* Add other navigation container styles here */
+}
+
+/* Update the CSS to style the horizontal navigation */
+.navigation-container > .horizontal-navigation {
+  list-style: none;
+  padding: 0;
+}
+
+.navigation-container > .horizontal-navigation > li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.navigation-container > .horizontal-navigation > li a.button {
+  padding: 10px 20px;
+  background: transparent;
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #333;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.navigation-container > .horizontal-navigation > li a.button:hover {
+  background: #333;
+  color: #fff;
+}
+
+// Media Queries
+
+@media screen and (max-width: 768px){
+  .main-container{
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    height: auto;
+  }
+
+  .container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background: #f5f5f5;
+    margin-top: 50px;
+  }
+
+  .omniauth-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #f5f5f5;
+    margin-top: 20px;
+  }
+
+  form{
+    width: 100%;
+    background: #fff;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  .omniauth-container form{
+    box-shadow: none;
+    background: none;
+    padding: 30px;
+    width: 100%;
+    margin-top: -50px;
+  }
+}

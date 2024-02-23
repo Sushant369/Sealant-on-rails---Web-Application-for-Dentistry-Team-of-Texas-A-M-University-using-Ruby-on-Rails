@@ -1,0 +1,102 @@
+<%= form_with(model: event_detail) do |form| %>
+  <% if event_detail.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(event_detail.errors.count, "error") %> prohibited this event_detail from being saved:</h2>
+
+      <ul>
+        <% event_detail.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="row">
+      <div class="col">
+        <div class="field">
+          <%= form.label :EventDate, "Event Date" %>
+          <%= form.date_field :EventDate, class: "form-control", style: "background-color: #eee; border: 1px solid black;" %>
+        </div>
+      </div>
+      <div class="col">
+        <div class="field">
+          <%= form.label :School, "School" %>
+          <%= form.text_field :School, class: "form-control", style: "background-color: #eee; border: 1px solid black;" %>
+        </div>
+      </div>
+      <div class="col">
+        <div class="field">
+          <%= form.label :ConsentFD, "Consent Forms Distributed" %>
+          <%= form.text_field :ConsentFD, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0 %>
+        </div>
+      </div>
+    </div>
+    &nbsp;&nbsp;&nbsp;
+    <table>
+      <thead>
+        <tr>
+          <th style="background-color: #ccc; font-weight: bold; text-align: center; border: 1px solid black;">Labor</th>
+          <th style="background-color: #ccc; font-weight: bold; text-align: center; border: 1px solid black;">Dentist</th>
+          <th style="background-color: #ccc; font-weight: bold; text-align: center; border: 1px solid black;">Hygienist</th>
+          <th style="background-color: #ccc; font-weight: bold; text-align: center; border: 1px solid black;">Assistant</th>
+          <th style="background-color: #ccc; font-weight: bold; text-align: center; border: 1px solid black;">Other</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="background-color: #ccc; font-weight: bold; border: 1px solid black;">Total hours at school</td>
+          <td><%= form.text_field :DenHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0%></td>
+          <td><%= form.text_field :HygHours, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0 %></td>
+          <td><%= form.text_field :AssistantHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0 %></td>
+          <td><%= form.text_field :OtherHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0 %></td>
+        </tr>
+        <tr>
+          <td style="background-color: #ccc; font-weight: bold; border: 1px solid black;">Total hours traveling to and from school</td>
+          <td><%= form.text_field :DenTravelHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0  %></td>
+          <td><%= form.text_field :HygTravelHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0  %></td>
+          <td><%= form.text_field :AssistantTravelHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0  %></td>
+          <td><%= form.text_field :OtherTravelHrs, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0  %></td>
+        </tr>
+        <tr>
+          <td style="background-color: #ccc; font-weight: bold; border: 1px solid black;">Total miles traveling to and from school</td>
+          <td><%= form.text_field :DenTravelMil, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0  %></td>
+          <td><%= form.text_field :HygTravelMil, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0  %></td>
+          <td><%= form.text_field :AssistantTravelMil, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0  %></td>
+          <td><%= form.text_field :OtherTravelMiles, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0  %></td>
+        </tr> 
+      </tbody>
+    </table>
+    <br>
+  
+  <table>
+    <thead>
+      <tr>
+      <strong>Vehicles</strong>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= form.label :NumberOfSSPDriven, "No. owned/operated by SSP driven to event" %></td>
+        <td style="text-align: center;"><%= form.text_field :NumberOfSSPDriven, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0 %></td>
+      </tr>
+      <tr>
+        <td><%= form.label :TotalMilesDriven, "Total miles driven for event" %></td>
+        <td style="text-align: center;"><%= form.text_field :TotalMilesDriven, class: "form-control", style: "background-color: #eee; border: 1px solid black;", min: 0%></td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <!-- JavaScript to prevent negative values -->
+  <script>
+    document.addEventListener("input", function (e) {
+      if (e.target.tagName === "INPUT" && e.target.type === "number" && e.target.value < 0) {
+        e.target.value = 0; 
+      }
+    });
+  </script>
+
+  <div>
+    <%= form.submit "Create Event", class: "btn btn-primary"%>
+  </div>
+<% end %>

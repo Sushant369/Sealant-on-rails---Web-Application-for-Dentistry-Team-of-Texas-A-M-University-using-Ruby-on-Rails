@@ -1,0 +1,63 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  PrescriberName: MyString
+  ScreenDate: 2023-10-13
+  ScreenComment: MyString
+  Sealants: false
+  UntreatedDecay: false
+  TreatedDecay: false
+  Referral: MyString
+  DecayedNum: 1
+  ProviderName: MyString
+  ProviderDate: 2023-10-13
+  FirstSealedNum: 1
+  SecondSealedNum: 1
+  OtherPermNum: 1
+  PrimarySealed: 1
+  FluorideVarnish: false
+  Prophylaxes: false
+  PreventativeComment: MyString
+  EvaluatorsName: MyString
+  EvaluatorDate: 2023-10-13
+  EvaluatorComment: MyString
+  RetainedSealant: 1
+  ReferredDT: false
+  ReferredUDT: false
+  SealantsRecd: 1
+  SealnatsNeeded: 1
+  Experienced: false
+  UntreatedDecay: false
+  Services: MyString
+  ORHealthStatus: MyString
+
+two:
+  PrescriberName: MyString
+  ScreenDate: 2023-10-13
+  ScreenComment: MyString
+  Sealants: false
+  UntreatedDecay: false
+  TreatedDecay: false
+  Referral: MyString
+  DecayedNum: 1
+  ProviderName: MyString
+  ProviderDate: 2023-10-13
+  FirstSealedNum: 1
+  SecondSealedNum: 1
+  OtherPermNum: 1
+  PrimarySealed: 1
+  FluorideVarnish: false
+  Prophylaxes: false
+  PreventativeComment: MyString
+  EvaluatorsName: MyString
+  EvaluatorDate: 2023-10-13
+  EvaluatorComment: MyString
+  RetainedSealant: 1
+  ReferredDT: false
+  ReferredUDT: false
+  SealantsRecd: 1
+  SealnatsNeeded: 1
+  Experienced: false
+  UntreatedDecay: false
+  Services: MyString
+  ORHealthStatus: MyString

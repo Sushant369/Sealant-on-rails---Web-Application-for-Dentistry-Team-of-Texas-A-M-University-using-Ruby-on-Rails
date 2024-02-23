@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+      /* Apply styles to the table */
+      table {
+          border-collapse: collapse;
+          width: 100%;
+      }
+
+      /* Style table headers */
+      th {
+          background-color: #333;
+          color: white;
+          padding: 8px;
+          text-align: left;
+      }
+
+      /* Style alternating rows */
+      tr:nth-child(even) {
+          background-color: #f2f2f2;
+      }
+
+      /* Style table data cells */
+      td {
+          padding: 8px;
+      }
+  </style>
+</head>
+<body>
+<h1>Statistics Version 1</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>School Attending</th>
+    <th>Date</th>
+    <th>Age</th>
+    <th>Grade</th>
+    <th>Gender</th>
+    <th>Race</th>
+    <th>Ethnicity</th>
+    <th>Date of Sealant Received</th>
+    <th>No of Sealant Needed</th>
+    <th>No of Sealant Received</th>
+    <th>No of Sealant Replaced</th>
+    <th>Did Patients have Sealant?</th>
+    <th>Carries Experience (DFM)?</th>
+    <th>Untreated Decay?</th>
+    <th>Referred for Dental Treatement?</th>
+    <th>Referred for Urgent Dental Treatement?</th>
+    <th>Fluoride Varnish Received?</th>
+  </tr>
+
+  <% @statistics_data.each do |data| %>
+    <tr>
+      <td><%= data.PatientId %></td>
+      <td><%= data.SchoolName %></td>
+      <td><%= data.Date %></td>
+      <td><%= data.Age %></td>
+      <td><%= data.Grade %></td>
+      <td><%= data.Gender %></td>
+      <td><%= data.Race %></td>
+      <td><%= data.Ethnicity %></td>
+      <td><%= data.DateOfSealentReceived %></td>
+      <td><%= data.NoOfSealentNeeded %></td>
+      <td><%= data.NoOfSealentReceived %></td>
+      <td><%=  %></td>
+      <td><%=  %></td>
+      <td><%= data.CarriesExperience %></td>
+      <td><%= data.UntreatedDecay %></td>
+      <td><%= data.ReferredForDT %></td>
+      <td><%= data.ReferredForUDT %></td>
+      <td><%= data.FluorideVarnish %></td>
+<!--       Add more data columns as needed -->
+    </tr>
+  <% end %>
+</table>
+</body>
+</html>

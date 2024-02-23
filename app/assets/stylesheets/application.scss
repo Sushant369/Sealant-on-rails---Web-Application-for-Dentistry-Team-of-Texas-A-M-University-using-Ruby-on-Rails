@@ -1,0 +1,36 @@
+/* Enhanced CSS */
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #f3f3f3;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+
+/* End of Page Image */
+.end-of-page-image {
+  text-align: center;
+  padding: 40px 0; /* Add vertical padding for better spacing around the image */
+}
+
+.end-of-page-image img {
+  max-width: 90%; /* Enlarge the image to occupy 90% of its parent container */
+  height: auto;
+  display: block; /* Ensures centered alignment */
+  margin: 0 auto; /* Center the image horizontally */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow effect */
+  border-radius: 10px; /* Rounded corners for a modern look */
+}
+
+/* Main Content */
+main {
+  text-align: center;
+  padding: 40px;
+}
+
+h1 {
+  font-size: 2em; /* Increase header size for a stronger visual impact */
+  color: #333; /* Adjust text color as needed */
+}

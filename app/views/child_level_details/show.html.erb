@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @child_level_detail %>
+
+<div>
+  <%= link_to "Edit this child level detail", edit_child_level_detail_path(@child_level_detail) %> |
+  <%= link_to "Back to child level details", child_level_details_path %>
+
+  <%= button_to "Destroy this child level detail", @child_level_detail, method: :delete %>
+</div>
