@@ -1,5 +1,16 @@
 # README
 
+## Capstone Project for CSCE 606 - Team Sealant on rails
+
+**Team Members:**
+- Sushant Shelar
+- Jaydeep Radadiya
+- Apurva Mandalika
+- Manisha Panda
+- Jay Nehete
+- Sarah Gullion 
+
+#####################################################################################################
 * Ruby version - 3.2.2
 
 * Rails version - 7.0.8
@@ -21,9 +32,7 @@
 To deploy locally. Clone the repo. Run the rails-3.2.2 version. Run gem install bundler. Run bundle install. Run db:migrate. Run rails s. The app should work :)
 
 
-* ...
-
-Project Detials:
+## Project Details:
 
 Revolutionizing dental sealant program: Replace paper-based data with interactive software for Texas A&M School of Dentistry. #HealthTech
 
@@ -33,11 +42,11 @@ Organization: Texas A&M School of Dentistry
 
 Contact: Dr. Amal Noureldin (anoureldin@tamu.edu)
 
-Description:
+## Description:
 
 The Texas A&M School of Dentistry oversees a Sealants Program dedicated to providing free dental sealants to elementary school children. Currently, the program relies on paper-based data collection sheets for dental screening and charting, with manual data entry into Excel sheets stored on Microsoft Teams. We are embarking on a project to revolutionize this process with an interactive software application.
 
-Project Goals:
+## Project Goals:
 
 Our primary objectives are as follows:
 
@@ -45,7 +54,7 @@ Efficient Data Capture: Develop a user-friendly software or app that allows facu
 
 Currently, our faculty and students visit elementary schools to conduct dental screenings and apply sealants to children. Data collected during these visits is recorded on paper forms, creating a cumbersome manual entry process for our program coordinator. The envisioned software or app will simplify this workflow and enhance data security.
 
-Key Features:
+## Key Features:
 
 User-friendly interface for data capture during dental screenings. Automation of data entry to reduce errors and save time. Robust analysis tools for evaluating program effectiveness. Secure data storage and access control to protect sensitive information. Compliance with best practices in Behavior-Driven Development (BDD) and Test-Driven Development (TDD). Technology Stack:
 
